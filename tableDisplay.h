@@ -23,4 +23,6 @@ void drawThePieces(PiecesList *pcListBegin);
 
 void stepDrawInTable();
 
+void errorPrint(char *err, int x, int y);
+
 #endif // TABLEDISPLAY_H_INCLUDED

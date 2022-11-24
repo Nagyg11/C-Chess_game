@@ -9,11 +9,13 @@
 #include "pieces.h"
 
 /**Vizsgálja hogy a játékot megnyerte-e valamelyik játékos. Visszatérési értéke bool, ami igaz: ha megnyerte valaki, hamis: ha nem*/
-bool wonSy();
+bool checkMate();
 
-bool defaultStepCheck(PiecesList *piece, int toX, int toY, bool color);
+bool defaultStepCheck(PiecesList *piece, int toX, int toY);
 
 bool pawnStepCheck(PiecesList *piece, int toX, int toY);
-bool chessCheck(bool color);
+//bool chessCheck(bool color);
+
+bool colorCheck(PiecesList *piece);
 
 #endif // CHESSRULE_H_INCLUDED

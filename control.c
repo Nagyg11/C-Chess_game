@@ -9,6 +9,41 @@
 #include "chessRule.h"
 #include "menu.h"
 
+StepLogList *stepListBegin=NULL;
+StepLogList *stepListBack=NULL;
+
+void stepAddLog(PiecesList *piece, int toX, int toY){
+    StepLogList *newStep=(StepLogList*) malloc(sizeof(StepLogList));
+        newStep->fromX=piece->posX;
+        newStep->fromY=piece->posY;
+        newStep->toX=toX;
+        newStep->toY=toY;
+        newStep->next=NULL;
+        if(stepListBegin==NULL){
+            stepListBegin=newStep;
+        }
+    else{
+        StepLogList *helper=stepListBegin;
+        while(helper->next!=NULL){
+            helper=helper->next;
+        }
+        helper->next=newStep;
+        }
+}
+
+StepLogList *getStepLogList(){
+    return stepListBegin;
+}
+
+int lengthLogList(){
+    StepLogList *helper=stepListBegin;
+    int i;
+    for( i=0; helper!=NULL; i++){
+        helper=helper->next;
+    }
+    return i;
+}
+
 
 /**Szöveget olvas be a bementrõl, visszatérési értéke egy char pointer.*/
 char *readAString(){
@@ -37,11 +72,20 @@ void deleteCharacters(int numCh){
     }
 }
 
-int characterToNumber(char ch){
+int numCharToNumber(char ch){
 
     ch=tolower(ch);
     if('0'<=ch && ch<='9'){
         return ch-'0';
+    }
+    return -1;
+}
+
+int charToNum(char ch){
+
+    ch=tolower(ch);
+    if('a'<=ch && ch<='h'){
+        return ch-'a'+1;
     }
     return -1;
 }
@@ -54,10 +98,19 @@ int *szamOlvasBe(){
     return szam;
 }
 
+/*void kiir(){
+    StepLogList *helper=stepListBegin;
+        while(helper!=NULL){
+            printf("%d ,%d = %d, %d \n", helper->fromX, helper->fromY, helper->toX, helper->toY);
+            helper=helper->next;
+        }
+        return NULL;
+}*/
+
 /**Beolvassa hogy melyik bábut szeretné mozgatni és hova.
 Egyenlõre csak számokat tud használni a helyzetek meghatározására.
 */
-void stepGetter(bool color){
+void stepGetter(){
     econio_textbackground(16);
     econio_textcolor(16);
 
@@ -65,15 +118,40 @@ void stepGetter(bool color){
     int selPosY;
     int stepPosX;
     int stepPosY;
-    char *c;
+    char *from;
+    char *to;
     econio_gotoxy(0,11);
-    printf("Kérem adja meg melyik bábuval szeretne lépni: x:  y:\n");
-    printf("Kérem adja hova szeretne lépni: x:  y:  \n");
-    printf("Egyenlõre a betûk helyett is számot írjon be.");
+    printf("Kérem adja meg melyik bábuval szeretne lépni: \n");
+    printf("Kérem adja hova szeretne lépni: \n");
+    printf("A betûk és számkok kombinációjav tudja megadni honnan hová szertene lépni");
 
-    char d='a';//=readAString();
-    scanf("%c", &d);
-    printf("%c", d);
+    econio_gotoxy(45,11);
+    from=readAString();
+
+    econio_gotoxy(31,12);
+    to=readAString();
+
+    selPosX=charToNum(from[0]);
+    selPosY=numCharToNumber(from[1]);
+    stepPosX=charToNum(to[0]);
+    stepPosY=numCharToNumber(to[1]);
+
+    if(strlen(to)==2 && strlen(from)==2 &&
+       selPosX!=-1 && selPosY!=-1 &&
+       stepPosX!=-1 && stepPosY!=-1){
+        stepOne(findPiece(selPosX, selPosY), stepPosX, stepPosY);
+       }else if(strcmp(to,"menu")){
+//        quitGame();
+        econio_gotoxy(0,15);
+        printf("Játék kilépés");
+    }else{
+        econio_gotoxy(0,16);
+        printf("Hibas bemenet");
+    }
+
+
+
+    /*
     econio_gotoxy(48,11);
     scanf("%d", &selPosX);
     econio_gotoxy(52,11);
@@ -81,24 +159,16 @@ void stepGetter(bool color){
     econio_gotoxy(34,12);
     scanf("%d", &stepPosX);
      econio_gotoxy(38,12);
-    scanf("%d", &stepPosY);
+    scanf("%d", &stepPosY);*/
 
-    if(defaultStepCheck(findPiece(selPosX, selPosY), stepPosX, stepPosY, color)){
-        stepOne(findPiece(selPosX,selPosY),stepPosX, stepPosY);
-        econio_gotoxy(10,10);
-        printf("    ");
-    }else{
-        econio_gotoxy(10,10);
-        printf("Hiba");
-    }
 
-    if(chessCheck(color)){
+    /*if(chessCheck(color)){
         econio_gotoxy(0,15);
         printf("Sakk");
     }else{
         econio_gotoxy(0,15);
         printf("   ");
-    }
+    }*/
     //c=readAString()
 
     //selPc=hosszu_sort_olvas();
@@ -113,21 +183,36 @@ void stepGetter(bool color){
 /**A táblán való bábú kijelzését megváltoztatja és meghívja a "changePieceXY()" fügvényt, ami a listában is átírja a bábu helyzetét.*/
 void stepOne(PiecesList *selectedPiece, int x, int y){
 
+    if(colorCheck(selectedPiece)){
+    if(defaultStepCheck(findPiece(selectedPiece->posX, selectedPiece->posY), x, y)){
+        econio_gotoxy(10,10);
+        printf("    ");
+        stepAddLog(selectedPiece, x, y);
+        changePieceXY(selectedPiece,x,y);
+    }else{
+        econio_gotoxy(10,10);
+        printf("Hiba");
+    }
+    }else{
+        econio_gotoxy(0,16);
+        printf("Nem Ön jön!");
+    }
+
     //stepDrawInTable(selectedPiece,x,y);
-    changePieceXY(selectedPiece,x,y);
+
 
 
 }
 
 /**A játék menetét vezérli. Miután betöltõdött a pálya ez a függvény hívja meg a játék során szükséges függvényeket.*/
-void gamePlay(bool colorStep){
-    while(!wonSy()){
+void gamePlay(){
+    while(!checkMate()){
     //econio_clrscr();
     basicTableDraw();
     drawThePieces(getPcListBegin());
-    stepGetter(colorStep);
+    stepGetter();
 
 
-    colorStep=!colorStep;
+    //colorStep=!colorStep;
     }
 }

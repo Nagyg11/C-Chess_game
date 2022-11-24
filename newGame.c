@@ -49,7 +49,7 @@ void newGameStart(){
     //getPlayerName();
     newGamePices();
         econio_clrscr();
-    gamePlay(true/*világos kezd ezért true*/);
+    gamePlay();
 
     free(lightName);
     free(darkName);

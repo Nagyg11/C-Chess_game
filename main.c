@@ -19,7 +19,7 @@ int main()
     #endif
 
     menuLoad();
-    free(getPcListBegin());
+    //free(getPcListBegin());
 
     return 0;
 }

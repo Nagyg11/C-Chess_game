@@ -6,19 +6,19 @@
 #include "control.h"
 #include "econio.h"
 
-/**BetÃ¶lti a menÅ±t Ã©s 1-4-ig lehet vÃ¡lasztani a menÃ¼pontokbÃ³l
-A menÃ¼hÃ¶z be kell Ã­rni a vÃ¡lasztani kivÃ¡nt menÃ¼pont szÃ¡mÃ¡t majd entert kell nyomni.
+/**Betölti a menût és 1-4-ig lehet választani a menüpontokból
+A menühöz be kell írni a választani kivánt menüpont számát majd entert kell nyomni.
 */
 void menuLoad(){
     econio_clrscr();
-    econio_set_title("Sakk - MenÃ¼");
+    econio_set_title("Sakk - Menü");
 
     int menuChoose=0;
-    printf("KÃ©rem vÃ¡lasszon menÃ¼pontot! \n");
-    printf("[1] Ãšj jÃ¡tek kezdÃ©s\n");
-    printf("[2] JÃ¡tek Ã¡llÃ¡s betÃ¶ltÃ©s fÃ¡jlbÃ³l\n");
-    printf("[3] DicsÃµseg lista\n");
-    printf("[4] KilÃ©pÃ©s\n");
+    printf("Kérem válasszon menüpontot! \n");
+    printf("[1] Új játek kezdés\n");
+    printf("[2] Játek állás betöltés fájlból\n");
+    printf("[3] Dicsõség lista\n");
+    printf("[4] Kilépés\n");
     do{
     fflush(stdin);
     scanf("%d", &menuChoose);
@@ -31,7 +31,7 @@ void menuLoad(){
         break;
     case 4:
         break;
-    default: printf("KÃ©rem adjon meg egy olyan szÃ¡mot, amely szerepel a menÃ¼ben!");
+    default: printf("Kérem adjon meg egy olyan számot, amely szerepel a menüben!");
             //econio_gotoxy(0,2);
         break;
     }

@@ -199,12 +199,13 @@
 1668276900 d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\econio.h
 	<stdbool.h>
 
-1669247600 source:d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\chessrule.c
+1669311767 source:d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\chessrule.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
 	<string.h>
 	"pieces.h"
+	"control.h"
 
 1669247385 d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\pieces.h
 	<stdio.h>
@@ -212,7 +213,7 @@
 	<stdbool.h>
 	<string.h>
 
-1669233601 d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\tabledisplay.h
+1669310507 d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\tabledisplay.h
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
@@ -221,7 +222,7 @@
 	"control.h"
 	"pieces.h"
 
-1669233625 d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\control.h
+1669311747 d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\control.h
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
@@ -249,14 +250,14 @@
 	"control.h"
 	"econio.h"
 
-1669247734 d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\chessrule.h
+1669311791 d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\chessrule.h
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
 	<string.h>
 	"pieces.h"
 
-1669247184 source:d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\control.c
+1669309890 source:d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\control.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
@@ -268,7 +269,7 @@
 	"chessRule.h"
 	"menu.h"
 
-1669232716 source:d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\main.c
+1669304553 source:d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\main.c
 	<stdio.h>
 	<windows.h>
 	<stdio.h>
@@ -277,7 +278,7 @@
 	<string.h>
 	"menu.h"
 
-1669242770 source:d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\menu.c
+1669307776 source:d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\menu.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
@@ -286,7 +287,7 @@
 	"control.h"
 	"econio.h"
 
-1669243673 source:d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\newgame.c
+1669303680 source:d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\newgame.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
@@ -294,14 +295,14 @@
 	"pieces.h"
 	"control.h"
 
-1669246530 source:d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\pieces.c
+1669303742 source:d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\pieces.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
 	<string.h>
 	"pieces.h"
 
-1669233021 source:d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\tabledisplay.c
+1669310459 source:d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\tabledisplay.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>

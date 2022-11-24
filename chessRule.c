@@ -3,11 +3,19 @@
 #include <stdbool.h>
 #include <string.h>
 #include "pieces.h"
+#include "control.h"
 
 /**Vizsgálja hogy a játékot megnyerte-e valamelyik játékos. Visszatérési értéke bool, ami igaz: ha megnyerte valaki, hamis: ha nem*/
-bool wonSy(){
+bool checkMate(){
     return false;
 }
+
+/*
+bool Draw(){
+
+
+}
+*/
 
 bool pawnStepCheck(PiecesList *piece, int toX, int toY){
     int direction= piece->color? -1: 1;
@@ -16,9 +24,9 @@ bool pawnStepCheck(PiecesList *piece, int toX, int toY){
     if(((piece->posY) + 1*direction) == toY && piece->posX == toX && toPiece==NULL){
         return true;
     }
-    /*if((getStepLogList()==NULL || getStepLogList()->next==NULL )&& ((piece->posY) + 2*direction) && piece->posX == toX){
-            return true;
-    }*/
+    if(((piece->posY) + 2*direction == toY) && piece->posX == toX && (piece->posY==2 || piece->posY==7) && (findPiece(toX,(piece->posY) + 1*direction)==NULL)){
+        return true;
+    }
     //Hit check
     if(((piece->posX+1 == toX) || (piece->posX-1 == toX)) && (piece->posY+1*direction==toY) && toPiece->color!=piece->color){
             //hitPiece(toPiece);
@@ -107,13 +115,10 @@ bool knightStepCheck(PiecesList *piece, int toX, int toY){
 }
 
 
-bool defaultStepCheck(PiecesList *piece, int toX, int toY, bool color){
+bool defaultStepCheck(PiecesList *piece, int toX, int toY){
+
     PiecesList *toPiece=findPiece(toX, toY);
     char name=piece->name;
-
-    if(piece->color!=color){
-        return false;
-    }
 
     if(toX>8 || toX<0 || toY<1 || toY>8 ){
         return false;
@@ -162,9 +167,13 @@ bool defaultStepCheck(PiecesList *piece, int toX, int toY, bool color){
 
 }
 
-bool chessCheck(bool color){
+bool colorCheck(PiecesList *piece){
+    return (piece->color == (lengthLogList()%2==0));
+}
+
+/*bool chessCheck(){
     PiecesList *helper=getPcListBegin();
-    PiecesList *king=findColorKing(color);
+    PiecesList *king=findColorKing();
         while(helper!=NULL){
             if(defaultStepCheck(helper->next, king->posX, king->posY, !color)){
                 return true;
@@ -172,4 +181,4 @@ bool chessCheck(bool color){
             helper=helper->next;
         }
     return false;
-}
+}*/

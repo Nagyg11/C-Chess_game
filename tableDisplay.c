@@ -11,6 +11,7 @@
 void basicTableDraw(){
 
 econio_set_title("Sakk - Játék");
+econio_gotoxy(0,0);
 
 /*A pálya kirajzolása*/
     char rowCh='a';
@@ -100,4 +101,11 @@ void stepDrawInTable(PiecesList *selectedPiece, int x, int y){
 
     econio_textcolor(16);
     econio_textbackground(16);
+}
+
+void errorPrint(char *err, int x, int y){
+    econio_clrscr();
+    econio_gotoxy(x,y);
+    printf("%s", err);
+
 }
