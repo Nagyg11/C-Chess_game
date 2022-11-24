@@ -1,0 +1,312 @@
+# depslib dependency file v1.0
+1667952928 source:d:\2022\bme\bme-1felev\prog\nagyhazi\nzhsakk\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1572899188 source:d:\2022\bme\bme-1felev\prog\nagyhazi\nzhsakk\econio.c
+	"econio.h"
+	<windows.h>
+	<stdio.h>
+	<conio.h>
+	<assert.h>
+	<assert.h>
+	<stdio.h>
+	<termios.h>
+	<unistd.h>
+	<stdbool.h>
+	<sys/time.h>
+	<sys/types.h>
+	<ctype.h>
+	<string.h>
+	<time.h>
+
+1557401935 d:\2022\bme\bme-1felev\prog\nagyhazi\nzhsakk\econio.h
+	<stdbool.h>
+
+1668289051 source:d:\gergely\bme\nagyhazi\nzhsakk\econio.c
+	"econio.h"
+	<windows.h>
+	<stdio.h>
+	<conio.h>
+	<assert.h>
+	<assert.h>
+	<stdio.h>
+	<termios.h>
+	<unistd.h>
+	<stdbool.h>
+	<sys/time.h>
+	<sys/types.h>
+	<ctype.h>
+	<string.h>
+	<time.h>
+
+1668276900 d:\gergely\bme\nagyhazi\nzhsakk\econio.h
+	<stdbool.h>
+
+1668362160 source:d:\gergely\bme\nagyhazi\nzhsakk\main.c
+	<stdio.h>
+	<windows.h>
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<string.h>
+	"pieces.h"
+	"tableDisplay.h"
+	"control.h"
+	"newGame.h"
+	"menu.h"
+	"chessRule.h"
+
+1668362174 source:d:\gergely\bme\nagyhazi\nzhsakk\menu.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<string.h>
+	"pieces.h"
+	"tableDisplay.h"
+	"control.h"
+	"chessRule.h"
+
+1668362187 source:d:\gergely\bme\nagyhazi\nzhsakk\tabledisplay.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<string.h>
+	"pieces.h"
+	"newGame.h"
+	"control.h"
+	"chessRule.h"
+	"menu.h"
+
+1668361573 source:d:\gergely\bme\nagyhazi\nzhsakk\chessrule.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<string.h>
+	"pieces.h"
+	"tableDisplay.h"
+	"control.h"
+	"newGame.h"
+	"menu.h"
+
+1668362227 source:d:\gergely\bme\nagyhazi\nzhsakk\pieces.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<string.h>
+	"newGame.h"
+	"tableDisplay.h"
+	"control.h"
+	"chessRule.h"
+	"menu.h"
+
+1668361773 d:\gergely\bme\nagyhazi\nzhsakk\pieces.h
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<string.h>
+	"tableDisplay.h"
+	"control.h"
+	"newGame.h"
+	"menu.h"
+	"chessRule.h"
+
+1668361565 source:d:\gergely\bme\nagyhazi\nzhsakk\newgame.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<string.h>
+	"pieces.h"
+	"tableDisplay.h"
+	"control.h"
+	"chessRule.h"
+	"menu.h"
+
+1668362133 d:\gergely\bme\nagyhazi\nzhsakk\tabledisplay.h
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<string.h>
+	"pieces.h"
+	"control.h"
+	"newGame.h"
+	"menu.h"
+	"chessRule.h"
+
+1668361844 d:\gergely\bme\nagyhazi\nzhsakk\control.h
+
+1668361570 source:d:\gergely\bme\nagyhazi\nzhsakk\control.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<string.h>
+	"pieces.h"
+	"tableDisplay.h"
+	"newGame.h"
+	"chessRule.h"
+	"menu.h"
+
+1668361760 d:\gergely\bme\nagyhazi\nzhsakk\newgame.h
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<string.h>
+	"pieces.h"
+	"tableDisplay.h"
+	"control.h"
+	"menu.h"
+	"chessRule.h"
+
+1668361743 d:\gergely\bme\nagyhazi\nzhsakk\menu.h
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<string.h>
+	"pieces.h"
+	"tableDisplay.h"
+	"control.h"
+	"newGame.h"
+	"chessRule.h"
+
+1668361789 d:\gergely\bme\nagyhazi\nzhsakk\chessrule.h
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<string.h>
+	"pieces.h"
+	"tableDisplay.h"
+	"control.h"
+	"newGame.h"
+	"menu.h"
+
+1668289052 source:d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\econio.c
+	"econio.h"
+	<windows.h>
+	<stdio.h>
+	<conio.h>
+	<assert.h>
+	<assert.h>
+	<stdio.h>
+	<termios.h>
+	<unistd.h>
+	<stdbool.h>
+	<sys/time.h>
+	<sys/types.h>
+	<ctype.h>
+	<string.h>
+	<time.h>
+
+1668276900 d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\econio.h
+	<stdbool.h>
+
+1669247600 source:d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\chessrule.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<string.h>
+	"pieces.h"
+
+1669247385 d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\pieces.h
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<string.h>
+
+1669233601 d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\tabledisplay.h
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<string.h>
+	"econio.h"
+	"control.h"
+	"pieces.h"
+
+1669233625 d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\control.h
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<string.h>
+	"econio.h"
+	"pieces.h"
+	"tableDisplay.h"
+	"chessRule.h"
+	"menu.h"
+
+1669234538 d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\newgame.h
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<string.h>
+	"pieces.h"
+	"control.h"
+
+1669232884 d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\menu.h
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<string.h>
+	"newGame.h"
+	"control.h"
+	"econio.h"
+
+1669247734 d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\chessrule.h
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<string.h>
+	"pieces.h"
+
+1669247184 source:d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\control.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<string.h>
+	<ctype.h>
+	"econio.h"
+	"pieces.h"
+	"tableDisplay.h"
+	"chessRule.h"
+	"menu.h"
+
+1669232716 source:d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\main.c
+	<stdio.h>
+	<windows.h>
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<string.h>
+	"menu.h"
+
+1669242770 source:d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\menu.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<string.h>
+	"newGame.h"
+	"control.h"
+	"econio.h"
+
+1669243673 source:d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\newgame.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<string.h>
+	"pieces.h"
+	"control.h"
+
+1669246530 source:d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\pieces.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<string.h>
+	"pieces.h"
+
+1669233021 source:d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\tabledisplay.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<string.h>
+	"econio.h"
+	"control.h"
+	"pieces.h"
+
