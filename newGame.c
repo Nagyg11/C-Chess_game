@@ -29,7 +29,7 @@ void newGamePices(){
 }
 
 
-void getPlayerName(){
+char *getPlayerName(){
     econio_clrscr();
 
     printf("Kérem adja meg a világos játékos nevét: ");
@@ -37,7 +37,11 @@ void getPlayerName(){
     printf("Kérem adja meg a sötét játékos nevét: ");
     darkName=readAString();
 
-    //printf("%s %s", lightName, darkName);
+    char *names=(char*) malloc((strlen(lightName)+strlen(darkName)+2)*sizeof(char));
+    strcpy(names,lightName);
+    strcat(names, ";");
+    strcat(names, darkName);
+    return names;
 
     econio_clrscr();
 }
@@ -46,11 +50,10 @@ void getPlayerName(){
 /**Az új játékhoz szükséges függvényeket meghívja*/
 void newGameStart(){
     /**Név bekérés*/
-    //getPlayerName();
+    char *names=getPlayerName();
     newGamePices();
         econio_clrscr();
-    gamePlay();
+    gamePlay(names);
 
-    free(lightName);
-    free(darkName);
+    free(names);
 }

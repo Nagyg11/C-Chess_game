@@ -27,10 +27,10 @@ char *readAString();
 /**Beolvassa hogy melyik bábut szeretné mozgatni és hova.
 Egyenlõre csak számokat tud használni a helyzetek meghatározására.
 */
-void stepOne(PiecesList *selectedPiece, int x, int y);
+void stepOne(PiecesList *selectedPiece, int x, int y, char *names);
 
 /**A játék menetét vezérli. Miután betöltõdött a pálya ez a függvény hívja meg a játék során szükséges függvényeket.*/
-void gamePlay();
+void gamePlay(char *names);
 
 int lengthLogList();
 

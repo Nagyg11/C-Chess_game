@@ -28,5 +28,7 @@ void changePieceXY(PiecesList *selectedPiece, int x, int y);
 
 PiecesList *findColorKing(bool color);
 
+void  pieceListFree();
+
 
 #endif // PIECES_H_INCLUDED

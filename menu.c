@@ -23,11 +23,16 @@ void menuLoad(){
     fflush(stdin);
     scanf("%d", &menuChoose);
     switch(menuChoose){
-    case 1: newGameStart();
+    case 1:
+        econio_set_title("Sakk - Játék");
+        newGameStart();
         break;
     case 2:
+        econio_set_title("Sakk - Játék");
+        //loadGameStart();
         break;
     case 3:
+        econio_set_title("Sakk - Ranglista");
         break;
     case 4:
         break;

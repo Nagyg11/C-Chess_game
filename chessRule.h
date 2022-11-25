@@ -18,4 +18,6 @@ bool pawnStepCheck(PiecesList *piece, int toX, int toY);
 
 bool colorCheck(PiecesList *piece);
 
+bool checkCheck();
+
 #endif // CHESSRULE_H_INCLUDED

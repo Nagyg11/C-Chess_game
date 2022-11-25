@@ -43,6 +43,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="econio.h" />
+		<Unit filename="fileManage.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="fileManage.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>

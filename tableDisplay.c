@@ -10,11 +10,10 @@
 /**Pálya alapjának 'kirajzolás': az oldal fülek és a háttérszinezések  */
 void basicTableDraw(){
 
-econio_set_title("Sakk - Játék");
 econio_gotoxy(0,0);
 
 /*A pálya kirajzolása*/
-    char rowCh='a';
+    char rowCh='A';
     econio_textcolor(0);
 
     for(int x=0; x!=10; x++){

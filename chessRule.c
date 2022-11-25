@@ -7,15 +7,20 @@
 
 /**Vizsgálja hogy a játékot megnyerte-e valamelyik játékos. Visszatérési értéke bool, ami igaz: ha megnyerte valaki, hamis: ha nem*/
 bool checkMate(){
+
     return false;
 }
 
-/*
-bool Draw(){
 
+/*bool stalemate(){
 
-}
-*/
+    if( !checkCheck()){
+
+    }
+
+    return true;
+}*/
+
 
 bool pawnStepCheck(PiecesList *piece, int toX, int toY){
     int direction= piece->color? -1: 1;
@@ -131,9 +136,9 @@ bool defaultStepCheck(PiecesList *piece, int toX, int toY){
     if(toPiece->color==piece->color){
         return false;
     }
-    if(toPiece->name=='k'){
+    /*if(toPiece->name=='k'){
         return false;
-    }
+    }*/
     }
 
 
@@ -171,14 +176,15 @@ bool colorCheck(PiecesList *piece){
     return (piece->color == (lengthLogList()%2==0));
 }
 
-/*bool chessCheck(){
+bool checkCheck(){
+
     PiecesList *helper=getPcListBegin();
-    PiecesList *king=findColorKing();
+    PiecesList *king=findColorKing(lengthLogList()%2==0);
         while(helper!=NULL){
-            if(defaultStepCheck(helper->next, king->posX, king->posY, !color)){
+            if(helper->color!=king->color && defaultStepCheck(helper, king->posX, king->posY)){
                 return true;
             }
             helper=helper->next;
         }
     return false;
-}*/
+}

@@ -199,7 +199,7 @@
 1668276900 d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\econio.h
 	<stdbool.h>
 
-1669311767 source:d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\chessrule.c
+1669324420 source:d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\chessrule.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
@@ -207,7 +207,7 @@
 	"pieces.h"
 	"control.h"
 
-1669247385 d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\pieces.h
+1669323622 d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\pieces.h
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
@@ -222,7 +222,7 @@
 	"control.h"
 	"pieces.h"
 
-1669311747 d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\control.h
+1669337415 d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\control.h
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
@@ -250,14 +250,14 @@
 	"control.h"
 	"econio.h"
 
-1669311791 d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\chessrule.h
+1669318787 d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\chessrule.h
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
 	<string.h>
 	"pieces.h"
 
-1669309890 source:d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\control.c
+1669337430 source:d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\control.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
@@ -269,16 +269,17 @@
 	"chessRule.h"
 	"menu.h"
 
-1669304553 source:d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\main.c
+1669336402 source:d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\main.c
 	<stdio.h>
 	<windows.h>
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
 	<string.h>
+	"fileManage.h"
 	"menu.h"
 
-1669307776 source:d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\menu.c
+1669324430 source:d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\menu.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
@@ -287,7 +288,7 @@
 	"control.h"
 	"econio.h"
 
-1669303680 source:d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\newgame.c
+1669337439 source:d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\newgame.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
@@ -295,14 +296,14 @@
 	"pieces.h"
 	"control.h"
 
-1669303742 source:d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\pieces.c
+1669322872 source:d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\pieces.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
 	<string.h>
 	"pieces.h"
 
-1669310459 source:d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\tabledisplay.c
+1669318848 source:d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\tabledisplay.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
@@ -310,4 +311,14 @@
 	"econio.h"
 	"control.h"
 	"pieces.h"
+
+1669336990 source:d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\filemanage.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<string.h>
+	"pieces.h"
+	"control.h"
+
+1669324353 d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\filemanage.h
 

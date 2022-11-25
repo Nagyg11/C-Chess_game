@@ -8,6 +8,7 @@
 #include "tableDisplay.h"
 #include "chessRule.h"
 #include "menu.h"
+#include "fileManage.h"
 
 StepLogList *stepListBegin=NULL;
 StepLogList *stepListBack=NULL;
@@ -42,6 +43,30 @@ int lengthLogList(){
         helper=helper->next;
     }
     return i;
+}
+
+void stepLogListFree(){
+    StepLogList *mover = stepListBegin;
+    while (mover != NULL) {
+        StepLogList *next = mover->next;
+        free(mover);
+        mover = next;
+    }
+}
+
+
+void quitGame(char *names){
+
+    printf("Adja meg kérem milyen néven szeretné menteni a játékot: ");
+    char *saveName=readAString();
+//    char *names="auto;palyam ja";
+    fileWrite(saveName, names);
+    free(saveName);
+
+    pieceListFree();
+    stepLogListFree();
+
+    menuLoad();
 }
 
 
@@ -110,7 +135,7 @@ int *szamOlvasBe(){
 /**Beolvassa hogy melyik bábut szeretné mozgatni és hova.
 Egyenlõre csak számokat tud használni a helyzetek meghatározására.
 */
-void stepGetter(){
+void stepGetter(char *names){
     econio_textbackground(16);
     econio_textcolor(16);
 
@@ -127,6 +152,11 @@ void stepGetter(){
 
     econio_gotoxy(45,11);
     from=readAString();
+    if(!strcmp(from,"menu")){
+//        quitGame();
+        econio_gotoxy(0,15);
+        printf("Játék kilépés");
+    }
 
     econio_gotoxy(31,12);
     to=readAString();
@@ -139,16 +169,17 @@ void stepGetter(){
     if(strlen(to)==2 && strlen(from)==2 &&
        selPosX!=-1 && selPosY!=-1 &&
        stepPosX!=-1 && stepPosY!=-1){
-        stepOne(findPiece(selPosX, selPosY), stepPosX, stepPosY);
-       }else if(strcmp(to,"menu")){
-//        quitGame();
+        stepOne(findPiece(selPosX, selPosY), stepPosX, stepPosY, names);
+       }else if(!strcmp(to,"menu")){
+        quitGame(names);
         econio_gotoxy(0,15);
         printf("Játék kilépés");
     }else{
         econio_gotoxy(0,16);
         printf("Hibas bemenet");
     }
-
+    free(from);
+    free(to);
 
 
     /*
@@ -181,9 +212,10 @@ void stepGetter(){
 }
 
 /**A táblán való bábú kijelzését megváltoztatja és meghívja a "changePieceXY()" fügvényt, ami a listában is átírja a bábu helyzetét.*/
-void stepOne(PiecesList *selectedPiece, int x, int y){
+void stepOne(PiecesList *selectedPiece, int x, int y, char *names){
 
     if(colorCheck(selectedPiece)){
+
     if(defaultStepCheck(findPiece(selectedPiece->posX, selectedPiece->posY), x, y)){
         econio_gotoxy(10,10);
         printf("    ");
@@ -193,6 +225,7 @@ void stepOne(PiecesList *selectedPiece, int x, int y){
         econio_gotoxy(10,10);
         printf("Hiba");
     }
+
     }else{
         econio_gotoxy(0,16);
         printf("Nem Ön jön!");
@@ -205,13 +238,17 @@ void stepOne(PiecesList *selectedPiece, int x, int y){
 }
 
 /**A játék menetét vezérli. Miután betöltõdött a pálya ez a függvény hívja meg a játék során szükséges függvényeket.*/
-void gamePlay(){
+void gamePlay(char *names){
     while(!checkMate()){
     //econio_clrscr();
     basicTableDraw();
     drawThePieces(getPcListBegin());
-    stepGetter();
-
+    stepGetter(names);
+    if(checkCheck())
+    {
+        econio_gotoxy(0,17);
+        printf("Sakk!");
+    }
 
     //colorStep=!colorStep;
     }

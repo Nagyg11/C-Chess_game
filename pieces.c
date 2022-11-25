@@ -46,7 +46,7 @@ PiecesList *findPiece(int posX, int posY){
         return NULL;
 }
 
-/*PiecesList *findColorKing(bool color){
+PiecesList *findColorKing(bool color){
     PiecesList *helper=pcListBegin;
         while(helper!=NULL){
             if((helper->color== color )&& (helper->name== 'k')){
@@ -55,7 +55,7 @@ PiecesList *findPiece(int posX, int posY){
             helper=helper->next;
         }
         return NULL;
-}*/
+}
 
 /*void kiir(){
     PiecesList *helper=pcListBegin;
@@ -70,3 +70,13 @@ void changePieceXY(PiecesList *selectedPiece, int x, int y){
     selectedPiece->posX=x;
     selectedPiece->posY=y;
 };
+
+
+void  pieceListFree(){
+    PiecesList *mover = pcListBegin;
+    while (mover != NULL) {
+        PiecesList *next = mover->next;
+        free(mover);
+        mover = next;
+    }
+}

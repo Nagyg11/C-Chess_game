@@ -7,6 +7,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
+#include "fileManage.h"
 
 #include "menu.h"
 
