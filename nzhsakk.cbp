@@ -39,6 +39,7 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="control.h" />
+		<Unit filename="debugmalloc.h" />
 		<Unit filename="econio.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -47,6 +48,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="fileManage.h" />
+		<Unit filename="loadGame.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="loadGame.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>

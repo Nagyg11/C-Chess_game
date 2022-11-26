@@ -7,9 +7,8 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
-#include "fileManage.h"
-
 #include "menu.h"
+#include "debugmalloc.h"
 
 
 int main()
@@ -19,6 +18,8 @@ int main()
     SetConsoleOutputCP(1250);
     #endif
 
+    int f=5;
+    char r[f];
     menuLoad();
     //free(getPcListBegin());
 

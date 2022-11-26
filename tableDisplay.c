@@ -3,8 +3,10 @@
 #include <stdbool.h>
 #include <string.h>
 #include "econio.h"
-#include "control.h"
+#include "newGame.h"
 #include "pieces.h"
+#include "control.h"
+#include "debugmalloc.h"
 
 
 /**Pálya alapjának 'kirajzolás': az oldal fülek és a háttérszinezések  */

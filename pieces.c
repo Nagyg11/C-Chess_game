@@ -2,26 +2,29 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
-#include "pieces.h"
+#include "newGame.h"
+#include "debugmalloc.h"
 
 
 /**A játékban éppen aktuálisan szereplõ bábuk listájára mutató pointer*/
-PiecesList *pcListBegin=NULL;
+
 
 /**Betölt a paraméterben kapott adatokkal egy új elemet a bábukat tartalmazó lista végére*/
-void pieceLoad(char name, bool color, int x, int y){
+void pieceLoad(char name, bool color, int x, int y, DefDatas *data){
 
         PiecesList *newPc=(PiecesList*) malloc(sizeof(PiecesList));
+       // newPc=data->pcListBegin;
+
         newPc->name=name;
         newPc->posX=x;
         newPc->posY=y;
         newPc->color=color;
         newPc->next=NULL;
-        if(pcListBegin==NULL){
-            pcListBegin=newPc;
+        if(data->pcListBegin==NULL){
+            data->pcListBegin=newPc;
         }
     else{
-        PiecesList *helper=pcListBegin;
+        PiecesList *helper=data->pcListBegin;
         while(helper->next!=NULL){
             helper=helper->next;
         }
@@ -31,12 +34,12 @@ void pieceLoad(char name, bool color, int x, int y){
 }
 
 /**Vissza adja a játék bábu adatait tartalmazó lista elsõ elemére mutató pointert*/
-PiecesList *getPcListBegin(){
+/*PiecesList *getPcListBegin(){
     return pcListBegin;
-}
+}*/
 
-PiecesList *findPiece(int posX, int posY){
-    PiecesList *helper=pcListBegin;
+PiecesList *findPiece(int posX, int posY, DefDatas *data){
+    PiecesList *helper=data->pcListBegin;
         while(helper!=NULL){
             if((helper->posX== posX )&& (helper->posY== posY)){
                 return helper;
@@ -46,8 +49,8 @@ PiecesList *findPiece(int posX, int posY){
         return NULL;
 }
 
-PiecesList *findColorKing(bool color){
-    PiecesList *helper=pcListBegin;
+PiecesList *findColorKing(bool color, DefDatas *data){
+    PiecesList *helper=data->pcListBegin;
         while(helper!=NULL){
             if((helper->color== color )&& (helper->name== 'k')){
                 return helper;
@@ -72,8 +75,8 @@ void changePieceXY(PiecesList *selectedPiece, int x, int y){
 };
 
 
-void  pieceListFree(){
-    PiecesList *mover = pcListBegin;
+void  pieceListFree(DefDatas *data){
+    PiecesList *mover = data->pcListBegin;
     while (mover != NULL) {
         PiecesList *next = mover->next;
         free(mover);

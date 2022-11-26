@@ -2,19 +2,19 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
-	<File name="pieces.c" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="tableDisplay.c" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2038" topLine="53" />
+			<Cursor1 position="170" topLine="83" />
 		</Cursor>
 	</File>
-	<File name="menu.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="loadGame.c" open="1" top="0" tabpos="18" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="224" topLine="0" />
+			<Cursor1 position="474" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="newGame.h" open="1" top="0" tabpos="14" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="pieces.h" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="205" topLine="0" />
+			<Cursor1 position="693" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="econio.h" open="1" top="0" tabpos="15" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -22,54 +22,24 @@
 			<Cursor1 position="214" topLine="3" />
 		</Cursor>
 	</File>
-	<File name="chessRule.c" open="1" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
+	<File name="loadGame.h" open="1" top="0" tabpos="19" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="313" topLine="0" />
+			<Cursor1 position="65" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="econio.c" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="newGame.h" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2859" topLine="96" />
+			<Cursor1 position="813" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="fileManage.c" open="1" top="0" tabpos="16" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="control.c" open="1" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="387" topLine="5" />
+			<Cursor1 position="2271" topLine="35" />
 		</Cursor>
 	</File>
-	<File name="chessRule.h" open="1" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="debugmalloc.h" open="1" top="0" tabpos="20" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="547" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="main.c" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="355" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="tableDisplay.c" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="328" topLine="4" />
-		</Cursor>
-	</File>
-	<File name="menu.c" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="893" topLine="15" />
-		</Cursor>
-	</File>
-	<File name="control.c" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="239" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="control.h" open="1" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="732" topLine="7" />
-		</Cursor>
-	</File>
-	<File name="newGame.c" open="1" top="1" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1185" topLine="30" />
+			<Cursor1 position="0" topLine="258" />
 		</Cursor>
 	</File>
 	<File name="tableDisplay.h" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -77,14 +47,59 @@
 			<Cursor1 position="888" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="pieces.h" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="control.h" open="1" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="856" topLine="5" />
+			<Cursor1 position="56" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="main.c" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="336" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="fileManage.c" open="1" top="1" tabpos="16" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2987" topLine="106" />
+		</Cursor>
+	</File>
+	<File name="chessRule.c" open="1" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="4732" topLine="162" />
+		</Cursor>
+	</File>
+	<File name="chessRule.h" open="1" top="0" tabpos="14" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="62" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="menu.c" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="749" topLine="17" />
+		</Cursor>
+	</File>
+	<File name="pieces.c" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1567" topLine="56" />
+		</Cursor>
+	</File>
+	<File name="newGame.c" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="170" topLine="40" />
 		</Cursor>
 	</File>
 	<File name="fileManage.h" open="1" top="0" tabpos="17" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="106" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="menu.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="49" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="econio.c" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="144" topLine="0" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

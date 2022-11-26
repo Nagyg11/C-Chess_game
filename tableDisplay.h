@@ -6,6 +6,7 @@
 #include <stdbool.h>
 #include <string.h>
 #include "econio.h"
+#include "newGame.h"
 #include "control.h"
 #include "pieces.h"
 

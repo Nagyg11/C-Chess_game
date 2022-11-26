@@ -8,6 +8,8 @@
 #include <stdio.h>
 #include <conio.h>
 #include <assert.h>
+//#include "debugmalloc.h"
+
 
 static WORD bgcolor = COL_BLACK;
 static WORD fgcolor = COL_LIGHTGRAY;

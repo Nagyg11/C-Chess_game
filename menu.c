@@ -3,44 +3,49 @@
 #include <stdbool.h>
 #include <string.h>
 #include "newGame.h"
-#include "control.h"
+#include "loadGame.h"
+#include "tableDisplay.h"
 #include "econio.h"
+#include "debugmalloc.h"
 
 /**Betölti a menût és 1-4-ig lehet választani a menüpontokból
 A menühöz be kell írni a választani kivánt menüpont számát majd entert kell nyomni.
 */
 void menuLoad(){
-    econio_clrscr();
     econio_set_title("Sakk - Menü");
 
+    econio_clrscr();
     int menuChoose=0;
+    do{
+    econio_gotoxy(0,0);
     printf("Kérem válasszon menüpontot! \n");
     printf("[1] Új játek kezdés\n");
     printf("[2] Játek állás betöltés fájlból\n");
     printf("[3] Dicsõség lista\n");
     printf("[4] Kilépés\n");
-    do{
     fflush(stdin);
     scanf("%d", &menuChoose);
     switch(menuChoose){
     case 1:
         econio_set_title("Sakk - Játék");
         newGameStart();
+        econio_clrscr();
         break;
     case 2:
         econio_set_title("Sakk - Játék");
-        //loadGameStart();
+        loadGameStart();
+        econio_clrscr();
         break;
     case 3:
         econio_set_title("Sakk - Ranglista");
+        econio_clrscr();
         break;
     case 4:
         break;
-    default: printf("Kérem adjon meg egy olyan számot, amely szerepel a menüben!");
-            //econio_gotoxy(0,2);
+    default: errorPrint("Kérem adjon meg egy olyan számot, amely szerepel a menüben!", 0,6);
         break;
     }
     }
-    while(menuChoose<1 || menuChoose>4);
+    while( menuChoose!=4 );
 
 }

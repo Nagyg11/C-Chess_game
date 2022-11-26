@@ -2,8 +2,11 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
+#include "newGame.h"
 #include "pieces.h"
 #include "control.h"
+#include "debugmalloc.h"
+
 
 /**Vizsgálja hogy a játékot megnyerte-e valamelyik játékos. Visszatérési értéke bool, ami igaz: ha megnyerte valaki, hamis: ha nem*/
 bool checkMate(){
@@ -22,14 +25,14 @@ bool checkMate(){
 }*/
 
 
-bool pawnStepCheck(PiecesList *piece, int toX, int toY){
+bool pawnStepCheck(PiecesList *piece, int toX, int toY, DefDatas *data){
     int direction= piece->color? -1: 1;
-    PiecesList *toPiece=findPiece(toX,toY);
+    PiecesList *toPiece=findPiece(toX,toY, data);
 
     if(((piece->posY) + 1*direction) == toY && piece->posX == toX && toPiece==NULL){
         return true;
     }
-    if(((piece->posY) + 2*direction == toY) && piece->posX == toX && (piece->posY==2 || piece->posY==7) && (findPiece(toX,(piece->posY) + 1*direction)==NULL)){
+    if(((piece->posY) + 2*direction == toY) && piece->posX == toX && (piece->posY==2 || piece->posY==7) && (findPiece(toX,(piece->posY) + 1*direction, data)==NULL)){
         return true;
     }
     //Hit check
@@ -40,7 +43,7 @@ bool pawnStepCheck(PiecesList *piece, int toX, int toY){
     return false;
 }
 
-bool bishopStepCheck(PiecesList *piece, int toX, int toY){
+bool bishopStepCheck(PiecesList *piece, int toX, int toY, DefDatas *data){
     int deltaX=toX-piece->posX;
     int deltaY=toY-piece->posY;
 
@@ -55,7 +58,7 @@ bool bishopStepCheck(PiecesList *piece, int toX, int toY){
     }
 
     for(int i=1; (i*directionX+piece->posX) != toX; i++){
-        if(findPiece((i*directionX+piece->posX),(i*directionY+piece->posY))!=NULL){
+        if(findPiece((i*directionX+piece->posX),(i*directionY+piece->posY), data)!=NULL){
             return false;
         }
     }
@@ -63,20 +66,20 @@ bool bishopStepCheck(PiecesList *piece, int toX, int toY){
     return true;
 }
 
-bool rookStepCheck(PiecesList *piece, int toX, int toY){
+bool rookStepCheck(PiecesList *piece, int toX, int toY, DefDatas *data){
 
     int directionX=(toX-piece->posX<0)?-1:1;
     int directionY=(toY-piece->posY<0)?-1:1;
 
     if(piece->posX==toX){
         for(int i=1; ((i*directionY) + piece->posY) != toY; i++){
-                if(findPiece(piece->posX,(i*directionY) + piece->posY)!=NULL){
+                if(findPiece(piece->posX,(i*directionY) + piece->posY, data)!=NULL){
                     return false;
                 }
         }
     }else if(piece->posY==toY){
         for(int i=1; ((i*directionX) + piece->posX) != toX; i++){
-                if(findPiece((i*directionX) + piece->posX, piece->posY)!=NULL){
+                if(findPiece((i*directionX) + piece->posX, piece->posY, data)!=NULL){
                     return false;
                 }
         }
@@ -86,14 +89,14 @@ bool rookStepCheck(PiecesList *piece, int toX, int toY){
     return true;
 }
 
-bool queenStepCheck(PiecesList *piece, int toX, int toY){
-    if(rookStepCheck(piece, toX, toY) || bishopStepCheck(piece, toX, toY)){
+bool queenStepCheck(PiecesList *piece, int toX, int toY, DefDatas *data){
+    if(rookStepCheck(piece, toX, toY, data) || bishopStepCheck(piece, toX, toY, data)){
         return true;
     }
     return false;
 }
 
-bool kingStepCheck(PiecesList *piece, int toX, int toY){
+bool kingStepCheck(PiecesList *piece, int toX, int toY, DefDatas *data){
     int deltaX=toX-piece->posX;
     int deltaY=toY-piece->posY;
     deltaX=(deltaX<0)?deltaX*(-1):deltaX;
@@ -106,7 +109,7 @@ bool kingStepCheck(PiecesList *piece, int toX, int toY){
 
 }
 
-bool knightStepCheck(PiecesList *piece, int toX, int toY){
+bool knightStepCheck(PiecesList *piece, int toX, int toY, DefDatas *data){
     int deltaX=toX-piece->posX;
     int deltaY=toY-piece->posY;
     deltaX=(deltaX<0)?deltaX*(-1):deltaX;
@@ -120,9 +123,9 @@ bool knightStepCheck(PiecesList *piece, int toX, int toY){
 }
 
 
-bool defaultStepCheck(PiecesList *piece, int toX, int toY){
+bool defaultStepCheck(PiecesList *piece, int toX, int toY, DefDatas *data){
 
-    PiecesList *toPiece=findPiece(toX, toY);
+    PiecesList *toPiece=findPiece(toX, toY, data);
     char name=piece->name;
 
     if(toX>8 || toX<0 || toY<1 || toY>8 ){
@@ -144,25 +147,25 @@ bool defaultStepCheck(PiecesList *piece, int toX, int toY){
 
     switch(name){
     case 'p':
-            return pawnStepCheck(piece, toX, toY);
+            return pawnStepCheck(piece, toX, toY, data);
         break;
 
     case 'b':
-            return bishopStepCheck(piece, toX, toY);
+            return bishopStepCheck(piece, toX, toY, data);
         break;
 
     case 'r':
-            return rookStepCheck(piece, toX, toY);
+            return rookStepCheck(piece, toX, toY, data);
         break;
 
     case 'h':
-            return knightStepCheck(piece, toX, toY);
+            return knightStepCheck(piece, toX, toY, data);
         break;
     case 'q':
-            return queenStepCheck(piece, toX, toY);
+            return queenStepCheck(piece, toX, toY, data);
         break;
     case 'k':
-            return kingStepCheck(piece, toX, toY);
+            return kingStepCheck(piece, toX, toY, data);
         break;
     default:
             return false;
@@ -172,16 +175,16 @@ bool defaultStepCheck(PiecesList *piece, int toX, int toY){
 
 }
 
-bool colorCheck(PiecesList *piece){
-    return (piece->color == (lengthLogList()%2==0));
+bool colorCheck(PiecesList *piece, DefDatas *data){
+    return (piece->color == (lengthLogList(data)%2==0));
 }
 
-bool checkCheck(){
+bool checkCheck(DefDatas *data){
 
-    PiecesList *helper=getPcListBegin();
-    PiecesList *king=findColorKing(lengthLogList()%2==0);
+    PiecesList *helper=data->pcListBegin;
+    PiecesList *king=findColorKing(lengthLogList(data)%2==0, data);
         while(helper!=NULL){
-            if(helper->color!=king->color && defaultStepCheck(helper, king->posX, king->posY)){
+            if(helper->color!=king->color && defaultStepCheck(helper, king->posX, king->posY, data)){
                 return true;
             }
             helper=helper->next;

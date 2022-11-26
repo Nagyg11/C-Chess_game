@@ -1,7 +1,9 @@
 #ifndef FILEMANAGE_H_INCLUDED
 #define FILEMANAGE_H_INCLUDED
 
-void fileWrite(char *saveName, char *names);
+#include "newGame.h"
+
+void fileWrite(char *saveName, DefDatas *data);
 
 
 #endif // FILEMANAGE_H_INCLUDED
