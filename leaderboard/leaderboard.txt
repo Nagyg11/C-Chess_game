@@ -1,0 +1,8 @@
+Sakk-Ranglista
+auto
+2
+arma
+23
+Leva
+1
+end;end

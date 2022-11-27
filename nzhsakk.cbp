@@ -48,6 +48,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="fileManage.h" />
+		<Unit filename="leaderBoard.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="leaderBoard.h" />
 		<Unit filename="loadGame.c">
 			<Option compilerVar="CC" />
 		</Unit>

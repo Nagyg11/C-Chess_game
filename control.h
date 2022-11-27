@@ -3,6 +3,10 @@
 
 #include "newGame.h"
 
+void stepAddLog(PiecesList *piece, int toX, int toY, DefDatas *data);
+
+char *join3String(char *str1, char *str2, char *str3);
+
 /**Szöveget olvas be a bementrõl, visszatérési értéke egy char pointer.*/
 char *readAString();
 

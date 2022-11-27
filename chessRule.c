@@ -8,11 +8,6 @@
 #include "debugmalloc.h"
 
 
-/**Vizsgálja hogy a játékot megnyerte-e valamelyik játékos. Visszatérési értéke bool, ami igaz: ha megnyerte valaki, hamis: ha nem*/
-bool checkMate(){
-
-    return false;
-}
 
 
 /*bool stalemate(){
@@ -102,7 +97,7 @@ bool kingStepCheck(PiecesList *piece, int toX, int toY, DefDatas *data){
     deltaX=(deltaX<0)?deltaX*(-1):deltaX;
     deltaY=(deltaY<0)?deltaY*(-1):deltaY;
 
-    if(deltaX==1 || deltaY==1){
+    if((deltaX==1 && deltaY==1) || (deltaX==1 && deltaY==0) || (deltaX==0 && deltaY==1) ){
         return true;
     }
     return false;
@@ -123,7 +118,7 @@ bool knightStepCheck(PiecesList *piece, int toX, int toY, DefDatas *data){
 }
 
 
-bool defaultStepCheck(PiecesList *piece, int toX, int toY, DefDatas *data){
+bool defaultStepCheck(PiecesList *piece, int toX, int toY,bool check ,DefDatas *data){
 
     PiecesList *toPiece=findPiece(toX, toY, data);
     char name=piece->name;
@@ -139,9 +134,11 @@ bool defaultStepCheck(PiecesList *piece, int toX, int toY, DefDatas *data){
     if(toPiece->color==piece->color){
         return false;
     }
-    /*if(toPiece->name=='k'){
+    if(!check){
+    if(toPiece->name=='k'){
         return false;
-    }*/
+    }
+    }
     }
 
 
@@ -179,15 +176,48 @@ bool colorCheck(PiecesList *piece, DefDatas *data){
     return (piece->color == (lengthLogList(data)%2==0));
 }
 
-bool checkCheck(DefDatas *data){
+bool checkCheck(PiecesList *king, DefDatas *data){
 
     PiecesList *helper=data->pcListBegin;
-    PiecesList *king=findColorKing(lengthLogList(data)%2==0, data);
         while(helper!=NULL){
-            if(helper->color!=king->color && defaultStepCheck(helper, king->posX, king->posY, data)){
+            if(helper->color!=king->color && defaultStepCheck(helper, king->posX, king->posY, true,data)){
                 return true;
             }
             helper=helper->next;
         }
     return false;
+}
+
+/**Vizsgálja hogy a játékot megnyerte-e valamelyik játékos. Visszatérési értéke bool, ami igaz: ha megnyerte valaki, hamis: ha nem*/
+bool checkMate(bool color, DefDatas *data){
+    PiecesList *helperPiece=data->pcListBegin;
+
+    while(helperPiece!=NULL){
+            int fromX;
+            int fromY;
+    bool help=helperPiece->color;
+
+            if(helperPiece->color==color){
+                fromX=helperPiece->posX;
+                fromY=helperPiece->posY;
+                for(int x=1; x<=8; x++){
+                    for(int y=1; y<=8; y++){
+                        if(defaultStepCheck(helperPiece, x, y, false, data)){
+                            changePieceXY(helperPiece, x, y);
+
+                            if(!checkCheck(findColorKing(color,data),data)){
+                                changePieceXY(helperPiece, fromX, fromY);
+                                return false;
+                            }
+                        }
+                        changePieceXY(helperPiece, fromX, fromY);
+                    }
+                }
+            }
+            helperPiece=helperPiece->next;
+        }
+
+
+    free(helperPiece);
+    return true;
 }

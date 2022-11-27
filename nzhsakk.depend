@@ -199,7 +199,7 @@
 1668276900 d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\econio.h
 	<stdbool.h>
 
-1669413045 source:d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\chessrule.c
+1669509888 source:d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\chessrule.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
@@ -226,18 +226,19 @@
 	"control.h"
 	"pieces.h"
 
-1669405066 d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\control.h
+1669461440 d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\control.h
 	"newGame.h"
 
-1669409607 d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\newgame.h
+1669489169 d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\newgame.h
+	<stdbool.h>
 
 1669404052 d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\menu.h
 
-1669405270 d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\chessrule.h
+1669507629 d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\chessrule.h
 	<stdbool.h>
 	"newGame.h"
 
-1669413858 source:d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\control.c
+1669509040 source:d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\control.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
@@ -261,7 +262,7 @@
 	"menu.h"
 	"debugmalloc.h"
 
-1669411774 source:d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\menu.c
+1669489502 source:d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\menu.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
@@ -271,6 +272,7 @@
 	"tableDisplay.h"
 	"econio.h"
 	"debugmalloc.h"
+	"leaderBoard.h"
 
 1669411779 source:d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\newgame.c
 	<stdio.h>
@@ -291,7 +293,7 @@
 	"newGame.h"
 	"debugmalloc.h"
 
-1669411787 source:d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\tabledisplay.c
+1669459576 source:d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\tabledisplay.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
@@ -302,7 +304,7 @@
 	"control.h"
 	"debugmalloc.h"
 
-1669419821 source:d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\filemanage.c
+1669494523 source:d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\filemanage.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
@@ -311,9 +313,11 @@
 	"control.h"
 	"tableDisplay.h"
 	"debugmalloc.h"
+	"leaderBoard.h"
 
-1669396346 d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\filemanage.h
+1669494798 d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\filemanage.h
 	"newGame.h"
+	"leaderBoard.h"
 
 1669410757 d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\loadgame.h
 
@@ -328,7 +332,7 @@
 	<process.h>
 	<unistd.h>
 
-1669420956 source:d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\loadgame.c
+1669465605 source:d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\loadgame.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
@@ -337,5 +341,17 @@
 	"fileManage.h"
 	"econio.h"
 	"debugmalloc.h"
+	"tableDisplay.h"
 	"control.h"
+	"pieces.h"
+
+1669481610 d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\leaderboard.h
+
+1669497507 source:d:\2022\bme\bme-1felev\prog\letolt\bme\nagyhazi\nzhsakk\leaderboard.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"leaderBoard.h"
+	"fileManage.h"
+	"econio.h"
 

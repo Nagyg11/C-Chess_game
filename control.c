@@ -11,6 +11,34 @@
 #include "fileManage.h"
 #include "debugmalloc.h"
 
+char *colorName(bool color,DefDatas *data){
+    int db = 0;
+    char *theName = (char*) malloc(sizeof(char) * 1);
+    theName[0] = '\0';
+    char newC;
+
+    if(!color){
+        while(data->names[db]!=';'){
+            db++;
+        }
+        db++;
+    }
+
+    while (data->names[db]!= (color?';':'\0')) {
+        newC=data->names[db];
+        char *helpArray = (char*) malloc(sizeof(char) * (db+1+1));
+        for (int i = 0; i < db; ++i){
+            helpArray[i] = theName[i];
+        }
+        free(theName);
+        theName = helpArray;
+        theName[db] = newC;
+        theName[db+1] = '\0';
+        ++db;
+    }
+    return theName;
+}
+
 
 void stepAddLog(PiecesList *piece, int toX, int toY, DefDatas *data){
     StepLogList *newStep=(StepLogList*) malloc(sizeof(StepLogList));
@@ -31,6 +59,15 @@ void stepAddLog(PiecesList *piece, int toX, int toY, DefDatas *data){
         }
 }
 
+void deleteLastLog(DefDatas *data){
+    StepLogList *mover=data->stepListBegin;
+    while(mover->next->next!=NULL){
+        mover=mover->next;
+    }
+    free(mover->next);
+    mover->next=NULL;
+
+}
 /*StepLogList *getStepLogList(){
     return stepListBegin;
 }*/
@@ -54,22 +91,42 @@ void stepLogListFree(DefDatas *data){
 
 }
 
+char *join3String(char *str1, char *str2, char *str3){
+    char *joinedStr=(char*) malloc((strlen(str1)+strlen(str2)+strlen(str3)+1)*sizeof(char));
+    strcpy(joinedStr,str1);
+    strcat(joinedStr, str2);
+    strcat(joinedStr, str3);
+    return joinedStr;
+}
+
 
 void quitGame(DefDatas *data){
+    data->gameEnd=true;
+    pieceListFree(data);
+    stepLogListFree(data);
+}
 
+void win(bool color, DefDatas *data){
+    econio_clrscr();
+    char *winName=colorName(color, data);
+    printf("Gratulálok gyözött %s!", winName);
+    char c;
+    scanf("%c", &c);
+    //putToLeaderboard(winName);
+    quitGame(data);
+}
+
+void saveGame(DefDatas *data){
     econio_clrscr();
     printf("Adja meg kérem milyen néven szeretné menteni a játékot: ");
     char *saveName=readAString();
-//    char *names="auto;palyam ja";
+    char *trash=saveName;
+    saveName=join3String("./savedGames/",saveName,".txt");
+    free(trash);
     fileWrite(saveName, data);
-
-    data->gameEnd=true;
     free(saveName);
-    pieceListFree(data);
-    stepLogListFree(data);
-    //menuLoad();
+    quitGame(data);
 }
-
 
 /**Szöveget olvas be a bementrõl, visszatérési értéke egy char pointer.*/
 char *readAString(){
@@ -130,19 +187,26 @@ void stepOne(PiecesList *selectedPiece, int x, int y, DefDatas *data){
 
     if(colorCheck(selectedPiece, data)){
 
-    if(defaultStepCheck(findPiece(selectedPiece->posX, selectedPiece->posY, data), x, y, data)){
-        econio_gotoxy(10,10);
-        printf("    ");
+    if(defaultStepCheck(selectedPiece, x, y, false, data)){
+        int fromX=selectedPiece->posX;
+        int fromY=selectedPiece->posY;
+
         stepAddLog(selectedPiece, x, y, data);
         changePieceXY(selectedPiece,x,y);
+        if(checkCheck(findColorKing(!(lengthLogList(data)%2==0), data), data)){
+            errorPrint("A sakkból ki kell lépnie és nem is léphet sakkba!",0,16);
+            changePieceXY(selectedPiece, fromX,fromY);
+            deleteLastLog(data);
+            return;
+        }
+
+        econio_clrscr();
     }else{
-        econio_gotoxy(10,10);
-        printf("Hiba");
+        errorPrint("Hibás lépés!",0,16);
     }
 
     }else{
-        econio_gotoxy(0,16);
-        printf("Nem Ön jön!");
+        errorPrint("Nem Ön jön!", 0,16);
     }
 
     //stepDrawInTable(selectedPiece,x,y);
@@ -167,12 +231,13 @@ void stepGetter(DefDatas *data){
     econio_gotoxy(0,11);
     printf("Kérem adja meg melyik bábuval szeretne lépni: \n");
     printf("Kérem adja hova szeretne lépni: \n");
-    printf("A betûk és számkok kombinációjav tudja megadni honnan hová szertene lépni");
+    printf("A betûk és számkok kombinációjav tudja megadni honnan hová szertene lépni!\n");
+    printf("Ha ki szeretne lepni írja be \"menu\" szót valamelyik bementre!");
 
     econio_gotoxy(45,11);
     from=readAString();
     if(!strcmp(from,"menu")){
-        quitGame(data);
+        saveGame(data);
         econio_gotoxy(0,15);
         printf("Játék kilépés");
         free(from);
@@ -190,17 +255,20 @@ void stepGetter(DefDatas *data){
     if(strlen(to)==2 && strlen(from)==2 &&
        selPosX!=-1 && selPosY!=-1 &&
        stepPosX!=-1 && stepPosY!=-1){
-        stepOne(findPiece(selPosX, selPosY, data), stepPosX, stepPosY, data);
+            if(findPiece(selPosX, selPosY, data)!=NULL){
+            stepOne(findPiece(selPosX, selPosY, data), stepPosX, stepPosY, data);
+            }else{
+                errorPrint("Nem bábut választott!",0,16);
+            }
        }else if(!strcmp(to,"menu")){
-        quitGame(data);
+        saveGame(data);
         econio_gotoxy(0,15);
         printf("Játék kilépés");
         free(from);
         free(to);
         return;
     }else{
-        econio_gotoxy(0,16);
-        printf("Hibas bemenet");
+        errorPrint("Hibás bemenet!",0,16);
     }
     free(from);
     free(to);
@@ -208,17 +276,30 @@ void stepGetter(DefDatas *data){
 
 /**A játék menetét vezérli. Miután betöltõdött a pálya ez a függvény hívja meg a játék során szükséges függvényeket.*/
 void gamePlay(DefDatas *data){
+    econio_clrscr();
+
     while(!data->gameEnd){
-    //econio_clrscr();
-    if(checkCheck(data))
+    bool tempColor=lengthLogList(data)%2==0;
+
+    if(checkCheck(findColorKing(findColorKing(tempColor,data), data), data))
     {
+        if(checkMate(tempColor, data), data){
+            win(!(tempColor),data);
+        }else{
         econio_gotoxy(0,17);
         printf("Sakk!");
+        }
+
+    }else{
+        econio_gotoxy(0,17);
+        printf("     ");
     }
     basicTableDraw();
     drawThePieces(data->pcListBegin);
-    stepGetter(data);
 
-    //colorStep=!colorStep;
+    econio_gotoxy(0,10);
+    lengthLogList(data)%2==0?printf("világos"):printf("sötét  ");
+
+    stepGetter(data);
     }
 }

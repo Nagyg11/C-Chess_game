@@ -7,6 +7,7 @@
 #include "tableDisplay.h"
 #include "econio.h"
 #include "debugmalloc.h"
+#include "leaderBoard.h"
 
 /**Betölti a menût és 1-4-ig lehet választani a menüpontokból
 A menühöz be kell írni a választani kivánt menüpont számát majd entert kell nyomni.
@@ -38,6 +39,7 @@ void menuLoad(){
         break;
     case 3:
         econio_set_title("Sakk - Ranglista");
+        getLeaderboard();
         econio_clrscr();
         break;
     case 4:

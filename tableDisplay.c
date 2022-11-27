@@ -108,5 +108,6 @@ void errorPrint(char *err, int x, int y){
     econio_clrscr();
     econio_gotoxy(x,y);
     printf("%s", err);
+    econio_gotoxy(0,0);
 
 }
